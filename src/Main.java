@@ -32,7 +32,7 @@ class Title extends JFrame {
 
 		setVisible(true);
 	}
-}
+} //20181023 1803 GitHub 업로드 테스트
 
 public class Main {
 
