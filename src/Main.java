@@ -1,8 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.*;
 /* Term Project 주제 - 두저지 잡기
  * Scene 구성 - Title, 난이도 선택, 게임화면, 게임방법, 랭킹 
+ * 
+ * TODO 김기훈 - Thread를 이용한 실시간 난수 발생, 버튼에 적용 및 버튼 눌렀을 때 액션 구현
+ * TODO 강성엽 - Game_Start Frame(Class)에서 Login기능 구현 및 관리, 전체적인 이미지 입히기 작업
+ * TODO 박민 - GUI 구현, 서버/네트워크 단에서 서비스 구현, 데이터베이스 구현(유저 정보, 랭킹의 실시간 동기화)
+ */
+
+/*	Main Section 에서는 프로그램을 실행했을 때에 초기화면과 전체적인 환경을 관할
+ *   버튼을 눌렀을 때 화면 전환도 여기서 구현
  */
 class Title extends JFrame {
 	public Title() {
@@ -10,6 +18,7 @@ class Title extends JFrame {
 		setTitle("Title");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(300, 400);
+		setLocationRelativeTo(null);
 		setResizable(false); // frame size fixed
 
 		/* Title의 컴포넌트 */
@@ -21,18 +30,54 @@ class Title extends JFrame {
 		JButton Ranking = new JButton("Ranking");
 		JButton Game_EXIT = new JButton("Game EXIT");
 		
+		/*이벤트 구현부 */
+		Game_Start.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Game_Start Frame pop
+				dispose();
+				new Game_Start();
+			}
+		});
 		
-
+		How_To_Play.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//How_To_Play Frame pop
+				dispose();
+				new How_To_Play();
+			}
+		});
+		
+		Ranking.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Ranking Frame pop
+				dispose();
+				new Ranking();
+			}
+		});
+		
+		Game_EXIT.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose(); //Program dispose
+			}
+		});
+		
 		Title_Panel.add(Game_Start);
 		Title_Panel.add(How_To_Play);
 		Title_Panel.add(Ranking);
 		Title_Panel.add(Game_EXIT);
-
+		
 		this.add(Title_Panel);
 
 		setVisible(true);
 	}
-} //20181023 1803 GitHub 업로드 테스트
+	
+	
+}
+
 
 public class Main {
 
