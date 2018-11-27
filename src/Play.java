@@ -53,10 +53,116 @@ public class Play extends JFrame {
 			Digda[i] = new JButton("0"); // 두더지 들어간 상태 == 0, 나온 상태 == 1
 			add(Digda[i]);
 		}
-		Digda[Popup].addActionListener(new ActionListener(){
+		//버튼 클릭시 Hit이면 점수++, 아니면 점수--
+		//이벤트 한 번에 구현 못해서 일단 하드코딩으로 9개 구현함, 수정방법 있으면 수정 예정
+		Digda[0].addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String temp = Digda[Popup].getText();
+				String temp = Digda[0].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[1].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[1].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[2].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[2].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[3].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[3].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[4].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[4].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[5].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[5].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[6].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[6].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[7].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[7].getText();
+				if(temp.equals("HIT !!!!!!!!!")){
+					score++;
+				}
+				else {
+					score--;
+				}
+				
+			}
+		});
+		Digda[8].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String temp = Digda[8].getText();
 				if(temp.equals("HIT !!!!!!!!!")){
 					score++;
 				}
