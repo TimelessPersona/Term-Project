@@ -20,7 +20,7 @@ public class Play extends JFrame {
 	Random rand = new Random();
 	JButton[] Digda = new JButton[9]; // 두더지가 될 버튼들, Thread에서 접근하기 위해 멤버로 선언
 	int Popup = 0;
-	int score = 0;
+	public static int score = 0;
 	public void score_Save(int score) throws IOException{
 		FileWriter scoreSave = new FileWriter("score.txt");
 		scoreSave.write(score);
@@ -182,10 +182,12 @@ public class Play extends JFrame {
 
 		GCT.start();
 		setVisible(true);
-		if (score==10) {
+		int time_count = Game_Start.getTime();
+		if (time_count<0) {
 			try {
 				GCT.wait();
 				score_Save(score);
+				System.out.println("결과 : "+score);
 				System.out.println("결과가 정상적으로 저장되었습니다.");
 			}catch(InterruptedException e) {
 				e.printStackTrace();
@@ -197,7 +199,7 @@ public class Play extends JFrame {
 		
 		
 	}
-	public int getScore() {
+	public static int getScore() {
 		return score;
 	}
 }

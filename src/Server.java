@@ -37,8 +37,4 @@ public class Server {
 		serverSetting();
 		streamSetting();
 	}
-	
-	public static void main(String[] args) {
-		new Server();
-	}
 }
