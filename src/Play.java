@@ -29,6 +29,7 @@ public class Play extends JFrame {
 
 				Popup = rand.nextInt(10) % 9;
 				Digda[Popup].setText("HIT !!!!!!!!!");
+				System.out.println(score);
 
 				try {
 					Thread.sleep(1000);
@@ -177,5 +178,10 @@ public class Play extends JFrame {
 
 		GCT.start();
 		setVisible(true);
+		
+		
+	}
+	public int getScore() {
+		return score;
 	}
 }
