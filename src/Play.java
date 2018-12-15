@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import java.io.*;
 /*
  * MEMO - 박민
  * 
@@ -21,9 +21,14 @@ public class Play extends JFrame {
 	JButton[] Digda = new JButton[9]; // 두더지가 될 버튼들, Thread에서 접근하기 위해 멤버로 선언
 	int Popup = 0;
 	int score = 0;
-
+	public void score_Save(int score) throws IOException{
+		FileWriter scoreSave = new FileWriter("score.txt");
+		scoreSave.write(score);
+	}
+	
+	
 	class Game_Controller_Thread implements Runnable { // 딜레이 마다 두더지 뿅
-		public void run() {
+		public void run(){
 			while (true) {
 				Digda[Popup].setText(Integer.toString(0));
 
@@ -36,7 +41,6 @@ public class Play extends JFrame {
 				} catch (InterruptedException e) {
 					return;
 				}
-
 			}
 		}
 	}
@@ -178,6 +182,18 @@ public class Play extends JFrame {
 
 		GCT.start();
 		setVisible(true);
+		if (score==10) {
+			try {
+				GCT.wait();
+				score_Save(score);
+				System.out.println("결과가 정상적으로 저장되었습니다.");
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}catch(IOException e) {
+				System.out.println("결과가 정상적으로 저장되지 않았습니다.");
+			}
+			
+		}
 		
 		
 	}
